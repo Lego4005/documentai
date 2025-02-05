@@ -1,0 +1,135 @@
+# System Patterns
+Version: 1.0.0
+Last Updated: {{TIMESTAMP}}
+
+## Metadata
+- **Type**: Architecture Documentation
+- **Version**: 1.0.0
+- **Last Updated**: {{TIMESTAMP}}
+- **Dependencies**: [techContext.md]
+- **Status**: 🎯 Active
+- **Importance**: 92/100
+- **Project Scope**: {{PROJECT_SCOPE}}
+
+## Table of Contents
+- [System Patterns](#system-patterns)
+  - [Metadata](#metadata)
+  - [Table of Contents](#table-of-contents)
+  - [Architecture Overview](#architecture-overview)
+  - [Project Scope](#project-scope)
+  - [Design Patterns](#design-patterns)
+  - [Integration Patterns](#integration-patterns)
+  - [Error Handling](#error-handling)
+  - [Best Practices](#best-practices)
+  - [System Constraints](#system-constraints)
+  - [Archive](#archive)
+
+## Architecture Overview
+{{PROJECT_NAME}} implements the following architecture:
+
+Core Components:
+{{#each TECH_STACK}}
+- {{this}}
+  - ⚠️ Implementation pending
+  - ⚠️ Documentation needed
+  - ⚠️ Tests required
+{{/each}}
+
+## Project Scope
+Implementation Scope: {{PROJECT_SCOPE}}
+
+Focus Areas:
+{{#each PROJECT_SCOPES[PROJECT_SCOPE].focus}}
+- 🎯 {{this}}
+{{/each}}
+
+Deferred Features:
+{{#each PROJECT_SCOPES[PROJECT_SCOPE].excludes}}
+- ❌ {{this}}
+{{/each}}
+
+Top Priorities:
+{{#each PRIORITIES}}
+- 🎯 {{this}}
+{{/each}}
+
+## Design Patterns
+Standard patterns used in the project:
+
+1. Project Structure
+   - ⚠️ Directory organization
+   - ⚠️ File naming conventions
+   - ⚠️ Module organization
+
+2. Code Organization
+   - ⚠️ Component structure
+   - ⚠️ Service layer
+   - ⚠️ Data access
+
+## Integration Patterns
+System integration approaches:
+
+1. External Services
+   - ⚠️ API integration
+   - ⚠️ Data flow
+   - ⚠️ Error handling
+
+2. Internal Systems
+   - ⚠️ Component communication
+   - ⚠️ Data sharing
+   - ⚠️ State management
+
+{{#if MCP_AVAILABLE}}
+3. MCP Integration
+   - ✅ MCP Server available
+   - ⚠️ Tool integration
+   - ⚠️ Resource access
+   - ⚠️ Cross-project features
+{{/if}}
+
+## Error Handling
+Error management strategies:
+
+1. Runtime Errors
+   - ⚠️ Error types
+   - ⚠️ Recovery procedures
+   - ⚠️ Logging
+
+2. System Errors
+   - ⚠️ Failure modes
+   - ⚠️ Recovery steps
+   - ⚠️ Prevention
+
+## Best Practices
+Development standards:
+
+1. Code Quality
+   - ⚠️ Style guide
+   - ⚠️ Documentation
+   - ⚠️ Testing
+
+2. Development Process
+   - ⚠️ Version control
+   - ⚠️ Code review
+   - ⚠️ CI/CD
+
+## System Constraints
+Project limitations and boundaries:
+
+1. Technical Constraints
+   - ⚠️ Performance limits
+   - ⚠️ Resource constraints
+   - ⚠️ Compatibility
+
+2. Scope Constraints ({{PROJECT_SCOPE}})
+{{#each PROJECT_SCOPES[PROJECT_SCOPE].excludes}}
+   - ❌ {{this}}
+{{/each}}
+
+3. Business Constraints
+   - ⚠️ Time limitations
+   - ⚠️ Resource availability
+   - ⚠️ Feature priorities
+
+## Archive
+[{{TIMESTAMP}}] Initial documentation with {{PROJECT_SCOPE}} scope

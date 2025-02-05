@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import readline from 'readline';
 import { fileURLToPath } from 'url';
+import { templateProcessor } from './template-processor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -15,6 +16,27 @@ const rl = readline.createInterface({
 
 // Promisify readline question
 const question = (query) => new Promise((resolve) => rl.question(query, resolve));
+
+/**
+ * Project scopes and their descriptions
+ */
+const PROJECT_SCOPES = {
+  MVP: {
+    description: 'Minimal viable product with core features only',
+    focus: ['Core functionality', 'Basic UI', 'Essential features'],
+    excludes: ['Authentication', 'Advanced features', 'Optimizations']
+  },
+  FRONTEND_FIRST: {
+    description: 'Focus on UI/UX implementation first',
+    focus: ['User interface', 'User experience', 'Frontend architecture'],
+    excludes: ['Backend integration', 'Authentication', 'Advanced features']
+  },
+  FULL: {
+    description: 'Complete implementation with all features',
+    focus: ['All features', 'Full architecture', 'Complete system'],
+    excludes: []
+  }
+};
 
 /**
  * Project types and their specific configurations
@@ -74,59 +96,21 @@ const TRACKING_FILES = [
  * Rule files that must be created
  */
 const RULE_FILES = {
-  '.clinerules': `# Cline's Memory Bank Rules
-
-## Core Principles
-
-1. Memory Reset Handling
-   - Your memory resets completely between sessions
-   - Memory Bank is your ONLY source of truth
-   - Never proceed without complete context
-   - Always verify documentation before starting
-
-2. Required Files [CRITICAL]
-   If ANY of these are missing, CREATE IMMEDIATELY:
-
-   /docs/cline_docs/
-   ├── productContext.md    # Project purpose & goals
-   ├── activeContext.md     # Current state & work
-   ├── systemPatterns.md    # Architecture & patterns
-   ├── techContext.md       # Technical setup
-   └── progress.md         # Status & validation
-
-3. File Creation Process
-   - Read all existing documentation
-   - Ask user for missing information
-   - Create with verified info only
-   - Include version headers
-   - Add cross-references
-   - Validate structure
-
-[Rest of .clinerules content...]`,
-
-  '.clinerrules': `# Project-Specific Rules
-
-## Code Standards
-- Follow project style guide
-- Use consistent naming
-- Add proper documentation
-- Include type definitions
-- Write unit tests
-
-## Security Practices
-- Validate all inputs
-- Handle errors properly
-- Use secure dependencies
-- Follow security best practices
-- Implement proper authentication
-
-## Development Workflow
-- Create feature branches
-- Write clear commit messages
-- Update documentation
-- Add tests
-- Request code reviews`
+  '.clinerules': `# Cline's Memory Bank Rules...`,
+  '.clinerrules': `# Project-Specific Rules...`
 };
+
+/**
+ * Check for MCP server availability
+ */
+async function checkMcpServer() {
+  try {
+    const response = await fetch('http://localhost:3000/mcp/status');
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
 
 /**
  * Detect project type from directory
@@ -188,23 +172,64 @@ async function collectProjectInfo() {
   console.log('\nProject Setup');
   console.log('=============');
   
+  // Select project scope
+  console.log('\nAvailable Project Scopes:');
+  for (const [scope, info] of Object.entries(PROJECT_SCOPES)) {
+    console.log(`\n${scope}:`);
+    console.log(`  Description: ${info.description}`);
+    console.log('  Focus:');
+    info.focus.forEach(item => console.log(`    - ${item}`));
+    if (info.excludes.length > 0) {
+      console.log('  Excludes:');
+      info.excludes.forEach(item => console.log(`    - ${item}`));
+    }
+  }
+  
+  const scope = await question('\nSelect project scope (MVP/FRONTEND_FIRST/FULL): ');
+  if (!PROJECT_SCOPES[scope.toUpperCase()]) {
+    console.error('Invalid scope selected');
+    process.exit(1);
+  }
+
   const info = {
-    name: await question('Project name: '),
-    purpose: await question('Project purpose: '),
-    features: []
+    PROJECT_NAME: await question('Project name: '),
+    PROJECT_PURPOSE: await question('Project purpose: '),
+    PROJECT_SCOPE: scope.toUpperCase(),
+    FEATURES: [],
+    PRIORITIES: []
   };
   
   console.log('\nKey features (enter empty line to finish):');
   while (true) {
     const feature = await question('- ');
     if (!feature) break;
-    info.features.push(feature);
+    info.FEATURES.push(feature);
+  }
+
+  console.log('\nTop priorities (enter empty line to finish):');
+  while (true) {
+    const priority = await question('- ');
+    if (!priority) break;
+    info.PRIORITIES.push(priority);
   }
   
-  info.techStack = await question('\nTechnical stack (comma-separated): ');
-  info.metrics = await question('Success metrics: ');
-  info.team = await question('Team/stakeholders: ');
-  info.timeline = await question('Timeline/milestones: ');
+  info.TECH_STACK = (await question('\nTechnical stack (comma-separated): '))
+    .split(',')
+    .map(tech => tech.trim())
+    .filter(Boolean);
+
+  info.SUCCESS_METRICS = await question('Success metrics: ');
+  info.TEAM = await question('Team/stakeholders: ');
+  info.TIMELINE = await question('Timeline/milestones: ');
+
+  // Check MCP server
+  const mcpAvailable = await checkMcpServer();
+  info.MCP_AVAILABLE = mcpAvailable;
+  if (mcpAvailable) {
+    console.log('✓ MCP server detected and available');
+  } else {
+    console.log('⚠️ MCP server not detected');
+  }
   
   return info;
 }
@@ -247,8 +272,8 @@ async function deploy() {
         );
       }
       
-      // Generate core files with project info
-      // TODO: Implement template generation
+      // Generate Memory Bank files from templates
+      await templateProcessor.generateMemoryBankFiles(process.cwd(), projectInfo);
       
     } else {
       // Create backup
