@@ -30,6 +30,18 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+# Check for Node.js and use enhanced installer if available
+if command -v node >/dev/null 2>&1; then
+    echo "Node.js detected, using enhanced installer..."
+    if [ -f "tracking/auto-deployer.mjs" ]; then
+        # Pass all arguments to the Node.js installer
+        node tracking/auto-deployer.mjs "$@"
+        exit $?
+    else
+        echo "Warning: Enhanced installer not found, falling back to basic installation"
+    fi
+fi
+
 # Function to extract version from a file
 get_version() {
     local file=$1
@@ -187,9 +199,6 @@ echo -e "\nInstalling rule files..."
 cp .clinerules ./.clinerules
 cp .clinerrules ./.clinerrules
 echo "✓ Rules installed"
-
-# Rest of the installation script...
-# [Previous implementation continues here]
 
 echo -e "\nMemory Bank system ${INSTALL_MODE}d successfully!"
 echo "=========================================="
