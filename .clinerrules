@@ -1,0 +1,89 @@
+# Security
+
+## Sensitive Files
+
+DO NOT read or modify:
+
+-   .env files
+-   \*_/config/secrets._
+-   \*_/_.pem
+-   Any file containing API keys, tokens, or credentials
+
+## Security Practices
+
+-   Never commit sensitive files
+-   Use environment variables for secrets
+-   Keep credentials out of logs and output
+
+# Project Guidelines
+
+## Documentation Requirements
+
+-   Update relevant documentation in /docs when modifying features
+-   Keep README.md in sync with new capabilities
+-   Maintain changelog entries in CHANGELOG.md
+
+## Architecture Decision Records
+
+Create ADRs in /docs/adr for:
+
+-   Major dependency changes
+-   Architectural pattern changes
+-   New integration patterns
+-   Database schema changes
+    Follow template in /docs/adr/template.md
+
+## Code Style & Patterns
+
+-   Generate API clients using OpenAPI Generator
+-   Use TypeScript axios template
+-   Place generated code in /src/generated
+-   Prefer composition over inheritance
+-   Use repository pattern for data access
+-   Follow error handling pattern in /src/utils/errors.ts
+
+## Testing Standards
+
+-   Unit tests required for business logic
+-   Integration tests for API endpoints
+-   E2E tests for critical user flows
+
+# Memory Bank Rules
+
+## Documentation Structure
+
+Required files in /docs/cline_docs:
+-   activeContext.md
+-   productContext.md
+-   systemPatterns.md
+-   techContext.md
+-   progress.md
+-   customInstructions.md
+
+## File Format Requirements
+
+-   Include version headers
+-   Add last updated timestamps
+-   Use status indicators from EMOJI_GUIDE.md
+-   Follow MEMORY_BANK_GUIDE.md structure
+
+## Status Tracking
+
+-   Track completion percentages
+-   Include importance ratings (1-100)
+-   Document dependencies
+-   Use proper status emojis
+
+## Update Procedures
+
+-   Run status check before changes
+-   Update all affected files
+-   Verify cross-references
+-   Maintain version consistency
+
+## Commands
+
+-   Use #loadmemory before starting work
+-   Run #updatememory when completing tasks
+-   Check #status regularly
+-   Follow MEMORY_BANK_GUIDE.md procedures
