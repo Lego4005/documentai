@@ -1,202 +1,133 @@
 # Memory Bank Guide
-Version: 1.0.0
-Last Updated: 2025-02-05
 
-## Overview
-This guide explains how to structure and maintain your project's Memory Bank system for optimal documentation and state management.
+## Commands
 
-## Core Components (🧠 System Core)
-
-### Required Files [🔒]
-
-1. **productContext.md** (Importance: 98/100)
-   - Project definition and purpose
-   - Problem statements
-   - Solution architecture
-   - Success metrics
-   Dependencies: None
-
-2. **activeContext.md** (Importance: 95/100)
-   - Current tasks and state
-   - Recent changes
-   - Current challenges
-   - Dependencies
-   Dependencies: productContext.md
-
-3. **systemPatterns.md** (Importance: 92/100)
-   - Architecture patterns
-   - Integration patterns
-   - Best practices
-   - Error handling
-   Dependencies: techContext.md
-
-4. **techContext.md** (Importance: 90/100)
-   - Technology stack
-   - Development environment
-   - Configuration
-   - Dependencies
-   Dependencies: systemPatterns.md
-
-5. **progress.md** (Importance: 88/100)
-   - Implementation status
-   - Known issues
-   - Testing status
-   - Coverage targets
-   Dependencies: activeContext.md
-
-## Infrastructure Components (⚙️ System)
-
-### Structure Requirements
-
-1. **Version Headers**
-   ```markdown
-   # Document Title
-   Version: 1.0.0
-   Last Updated: YYYY-MM-DD HH:MM
-   ```
-
-2. **Status Indicators**
-   - ⭐ Completed with excellence
-   - ✅ Completed successfully
-   - 🎯 Completed and verified
-   - 📈 In progress, improving
-   - ⚠️ Needs attention
-   - 🔄 Actively being worked on
-
-3. **Component Metadata**
-   ```markdown
-   Importance: XX/100
-   Completion: XX%
-   Dependencies: [file1.md, file2.md]
-   ```
-
-## Support Systems (🛠️ Tools)
-
-### Memory Commands
-
-1. **#loadmemory**
-   - Initializes memory context
-   - Verifies documentation integrity
-   - Shows current status
+1. **#load**
+   - Start/join project
+   - Read current state
+   - Initialize context
 
 2. **#status**
-   - Checks memory bank health
-   - Shows metrics and progress
-   - Lists incomplete items
+   - Save current state
+   - Check progress
+   - Update documentation
 
-3. **#updatememory**
-   - Saves current state
-   - Updates documentation
-   - Verifies changes
+3. **#next**
+   - Complete current task
+   - Find next priority
+   - Start fresh chat
 
-4. **#next**
-   - Updates memory bank
-   - Extracts next steps
-   - Prepares continuation
+## Workflow
 
-## Validation Process
+1. Starting a Project
+   ```bash
+   #load    # Initialize memory bank
+   ```
 
-### Pre-Update Checks
-- [ ] All files properly documented
-- [ ] Status indicators up to date
-- [ ] Cross-references valid
-- [ ] Metrics collected
-- [ ] Focus areas identified
+2. During Development
+   - Auto-commits for big changes
+   - Git hooks update memory bank
+   - Documentation stays current
 
-### Update Process
-- [ ] Run status check
-- [ ] Update activeContext.md
-- [ ] Verify documentation integrity
-- [ ] Save current metrics
-- [ ] Prepare for transition
+3. Saving State
+   ```bash
+   #status  # Save & check progress
+   ```
 
-### Post-Update Verification
-- [ ] Documentation synchronized
-- [ ] Status properly updated
-- [ ] Metrics saved
-- [ ] Cross-references maintained
-- [ ] Focus areas clear
+4. New Task
+   ```bash
+   #next    # Start fresh with new task
+   ```
+
+## File Structure
+
+/docs/cline_docs/
+├── productContext.md    # Project purpose & goals
+├── activeContext.md     # Current state & work
+├── systemPatterns.md    # Architecture & patterns
+├── techContext.md       # Technical setup
+└── progress.md         # Status & validation
+
+## Status Indicators
+
+Core Status:
+- ✅ Completed items
+- ⚠️ In-progress work
+- ❌ Not started items
+
+Category Indicators:
+- 🎯 Priority/Focus items
+- 📊 Metrics/Analytics
+- 🔧 Technical implementation
+- 🏗️ Architecture/Structure
+- 🚧 Constraints/Limitations
+- 🔒 Security/Protection
+
+## Automation
+
+1. Git Integration
+   - Auto-commits for significant changes
+   - Updates memory bank after commits
+   - Tracks file changes
+
+2. Status Updates
+   - Automatic progress tracking
+   - Change detection
+   - Metrics updates
+
+3. Documentation
+   - Cross-reference validation
+   - Timestamp updates
+   - Structure verification
 
 ## Best Practices
 
-1. **Documentation Updates**
-   - Always update all relevant files
-   - Include version numbers
-   - Add timestamps
-   - Maintain cross-references
-   - Verify consistency
+1. Always start with #load
+   - Ensures fresh context
+   - Verifies documentation
+   - Sets up workspace
 
-2. **Status Tracking**
-   - Use appropriate status indicators
-   - Include completion percentages
-   - Track importance ratings
-   - Document dependencies
-   - Monitor system health
+2. Use #status regularly
+   - Keeps documentation current
+   - Tracks progress
+   - Records changes
 
-3. **Memory Management**
-   - Regular status checks
-   - Consistent updates
-   - Cross-reference validation
-   - Dependency tracking
-   - Health monitoring
+3. End with #next
+   - Saves final state
+   - Finds next task
+   - Fresh start for AI
 
-## System Health Metrics
+## Error Recovery
 
-Track these key metrics for optimal system performance:
+1. If verification fails:
+   ```bash
+   #load    # Re-initialize context
+   ```
 
-1. **Core Documentation**
-   - Version consistency
-   - Cross-reference integrity
-   - Update frequency
-   - Completion status
+2. If files are missing:
+   ```bash
+   #status  # Rebuild documentation
+   ```
 
-2. **Infrastructure**
-   - File structure
-   - Version control
-   - Backup system
-   - Cross-validation
+3. If switching tasks:
+   ```bash
+   #next    # Clean transition
+   ```
 
-3. **Support Systems**
-   - Command functionality
-   - Tool integration
-   - Process automation
-   - Error handling
+## Tips
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Inconsistent States**
-   - Verify all file versions match
-   - Check cross-references
+1. Documentation
+   - Keep sections organized
+   - Use status markers
    - Update timestamps
-   - Rebuild if needed
+   - Add cross-references
 
-2. **Missing Metrics**
-   - Check status tracking
-   - Verify storage
-   - Rebuild metrics
-   - Update status
+2. Development
+   - Commit regularly
+   - Let automation help
+   - Keep docs current
 
-3. **Lost Context**
-   - Load latest backup
-   - Verify state
-   - Update references
-   - Rebuild context
-
-## Maintenance Schedule
-
-1. **Daily**
-   - Status checks
-   - Context updates
-   - Progress tracking
-
-2. **Weekly**
-   - Full validation
-   - Metrics review
-   - Documentation audit
-
-3. **Monthly**
-   - System health check
-   - Performance review
-   - Optimization pass
+3. Task Management
+   - One task at a time
+   - Clear transitions
+   - Track progress

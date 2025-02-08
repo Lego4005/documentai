@@ -21,6 +21,11 @@ const PROJECT_SCOPES = {
     description: 'Complete implementation with all features',
     focus: ['All features', 'Full architecture', 'Complete system'],
     excludes: []
+  },
+  HYBRID: {
+    description: 'Combined automated and manual memory management',
+    focus: ['Automated updates', 'Manual overrides', 'Template system'],
+    excludes: []
   }
 };
 
@@ -131,7 +136,7 @@ export async function generateMemoryBankFiles(outputDir, projectInfo) {
       'Implementation complexity',
       'Testing requirements',
       'Documentation needs',
-      ...PROJECT_SCOPES[projectInfo.PROJECT_SCOPE].excludes.map(item => `Deferred: ${item}`)
+      ...(PROJECT_SCOPES[projectInfo.PROJECT_SCOPE]?.excludes || []).map(item => `Deferred: ${item}`)
     ]
   };
 

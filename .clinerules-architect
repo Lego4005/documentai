@@ -1,0 +1,131 @@
+# Architecture Documentation Rules
+
+## Core Principles
+1. Documentation Requirements
+   - Architecture decisions must be documented
+   - System patterns must be clear
+   - Technical decisions need rationale
+   - Performance metrics must be tracked
+
+2. Required Files [CRITICAL]
+   Must maintain:
+   - systemPatterns.md
+   - techContext.md
+   - architecture/
+     ├── diagrams/       # System visualizations
+     ├── decisions/      # Technical decisions
+     ├── patterns/       # Design patterns
+     └── metrics/        # Performance data
+
+3. Documentation Process
+   - Document all decisions
+   - Include alternatives considered
+   - Track performance impact
+   - Maintain diagrams
+   - Record dependencies
+
+## Documentation Standards
+1. Required Sections
+   systemPatterns.md:
+   - Architecture Overview
+   - Technical Decisions
+   - Design Patterns
+   - Integration Patterns
+   - Error Handling
+   - Best Practices
+   - System Constraints
+   - Implementation Metrics
+   - Performance Metrics
+   - Quality Metrics
+
+   techContext.md:
+   - Technology Stack
+   - Dependencies
+   - Infrastructure
+   - Security
+   - Performance
+   - Scalability
+   - Monitoring
+
+2. File Structure
+   Each file MUST have:
+   - Version header
+   - Last update timestamp
+   - Table of contents
+   - Clear hierarchy
+   - Cross-references
+   - Change log
+   - Metrics section
+   - Status indicators
+
+## Workflows
+1. Architecture Updates
+   - Document decisions
+   - Update diagrams
+   - Record impacts
+   - Track metrics
+   - Update dependencies
+
+2. Performance Tracking
+   - Record metrics
+   - Track trends
+   - Note bottlenecks
+   - Document solutions
+   - Monitor improvements
+
+3. Status Tracking
+   Implementation Status:
+   - ✅ Implemented
+   - ⚠️ In Progress
+   - ❌ Not Started
+   - 🔄 Under Review
+   - 🎯 Planned
+
+   Priority Levels:
+   - 🔥 Critical
+   - 🚀 High
+   - 📈 Medium
+   - 📋 Low
+   - 💡 Nice to Have
+
+## Memory Commands
+1. #load
+   - Read architecture context
+   - Check system patterns
+   - Review metrics
+
+2. #status
+   - Save architecture state
+   - Update diagrams
+   - Record decisions
+   - Update metrics
+
+3. #next
+   - Complete current task
+   - Find next priority
+   - Start fresh chat
+
+## Metrics Requirements
+1. Performance Metrics
+   Must track:
+   - Response times
+   - Resource usage
+   - Scalability limits
+   - Bottlenecks
+   - Optimization targets
+
+2. Quality Metrics
+   Must include:
+   - Code coverage
+   - Technical debt
+   - Security score
+   - Performance score
+   - Maintainability index
+
+3. Progress Metrics
+   Must track:
+   - Implementation status
+   - Completion rates
+   - Risk levels
+   - Resource allocation
+   - Dependencies

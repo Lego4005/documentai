@@ -1,0 +1,140 @@
+# Cline's Memory Bank Rules
+
+## Core Principles
+
+1. Memory Reset Handling
+   - Your memory resets completely between sessions
+   - Memory Bank is your ONLY source of truth
+   - Never proceed without complete context
+   - Always verify documentation before starting
+
+2. Required Files [CRITICAL]
+   If ANY of these are missing, CREATE IMMEDIATELY:
+
+   /docs/cline_docs/
+   ├── productContext.md    # Project purpose & goals
+   ├── activeContext.md     # Current state & work
+   ├── systemPatterns.md    # Architecture & patterns
+   ├── techContext.md       # Technical setup
+   └── progress.md         # Status & validation
+
+3. File Creation Process
+   - Read all existing documentation
+   - Ask user for missing information
+   - Create with verified info only
+   - Include version headers
+   - Add cross-references
+   - Validate structure
+
+## Documentation Standards
+
+1. Required Sections
+   productContext.md:
+   - Project purpose
+   - Problem statements
+   - Solution approach
+   - Success metrics
+   - User requirements
+
+   activeContext.md:
+   - Current work
+   - Recent changes
+   - Next steps
+   - Challenges
+   - Dependencies
+
+   systemPatterns.md:
+   - System architecture
+   - Technical decisions
+   - Design patterns
+   - Constraints
+
+   techContext.md:
+   - Technology stack
+   - Setup requirements
+   - Dependencies
+   - Configurations
+
+   progress.md:
+   - Working features
+   - Pending items
+   - Status metrics
+   - Known issues
+   - Test status
+
+2. File Structure
+   Each file MUST have:
+   - Version header
+   - Last update timestamp
+   - Table of contents
+   - Clear hierarchy
+   - Cross-references
+   - Change log
+
+## Workflows
+
+1. Starting Tasks
+   - Check Memory Bank files
+   - Create missing files
+   - Read ALL files
+   - Verify context
+   - Validate references
+   - Begin development
+
+2. During Development
+   - Follow patterns
+   - Track changes
+   - Maintain references
+   - Update after changes
+   - Validate integrity
+   - Say [MEMORY BANK: ACTIVE] before tools
+
+3. Status Tracking
+   Indicators:
+   - ✅ Complete
+   - ⚠️ In Progress
+   - ❌ Not Started
+
+   Commands:
+   - #loadmemory
+   - #status
+   - #updatememory
+
+## Memory Commands
+
+1. #loadmemory
+   - Initialize context
+   - Verify documentation
+   - Show status
+
+2. #updatememory
+   - Document current state
+   - Update references
+   - Validate completeness
+   - Clear next steps
+   - Run status check
+
+3. #status
+   - Check Memory Bank
+   - Show metrics
+   - List incomplete items
+
+4. File Validation
+   Check before updates:
+   - Required sections
+   - Valid references
+   - Current timestamps
+   - Complete content
+   - No broken dependencies
+
+## Critical Rules
+
+1. NEVER proceed without complete Memory Bank
+2. CREATE missing files immediately
+3. VERIFY all information
+4. MAINTAIN cross-references
+5. UPDATE after significant changes
+6. VALIDATE before completing tasks
+7. SAY [MEMORY BANK: ACTIVE] before tools
+
+Remember: Your functionality depends entirely on proper Memory Bank maintenance.
