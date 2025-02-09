@@ -1,0 +1,98 @@
+{
+  "available_tools": [
+    {
+      "name": "semantic-search",
+      "description": "Perform semantic search using Pinecone",
+      "enabled": true,
+      "requires_setup": true
+    },
+    {
+      "name": "read-document",
+      "description": "Read documents from Pinecone",
+      "enabled": true,
+      "requires_setup": true
+    },
+    {
+      "name": "process-document",
+      "description": "Process and index documents in Pinecone",
+      "enabled": true,
+      "requires_setup": true
+    },
+    {
+      "name": "list-documents",
+      "description": "List available documents in Pinecone",
+      "enabled": true,
+      "requires_setup": true
+    },
+    {
+      "name": "pinecone-stats",
+      "description": "Get Pinecone index statistics",
+      "enabled": true,
+      "requires_setup": true
+    },
+    {
+      "name": "memory_bank",
+      "description": "Project memory and context management",
+      "enabled": true,
+      "requires_setup": false,
+      "config_file": true,
+      "features": [
+        "Context tracking",
+        "Documentation updates",
+        "Git integration",
+        "Metrics collection"
+      ]
+    },
+    {
+      "name": "token_optimizer",
+      "description": "Optimize token usage and context",
+      "enabled": true,
+      "requires_setup": false,
+      "config_file": true,
+      "features": [
+        "Smart chunking",
+        "Priority token preservation",
+        "Context compression",
+        "Token usage tracking"
+      ]
+    },
+    {
+      "name": "git_manager",
+      "description": "Git workflow automation",
+      "enabled": true,
+      "requires_setup": false
+    },
+    {
+      "name": "doc_updater",
+      "description": "Documentation auto-updates",
+      "enabled": true,
+      "requires_setup": false
+    },
+    {
+      "name": "format_manager",
+      "description": "Content formatting and organization",
+      "enabled": true,
+      "requires_setup": false
+    },
+    {
+      "name": "template_processor",
+      "description": "Template processing and generation",
+      "enabled": true,
+      "requires_setup": false
+    },
+    {
+      "name": "checkpoint",
+      "description": "Project checkpoint management",
+      "enabled": true,
+      "requires_setup": false
+    },
+    {
+      "name": "hybrid_mode",
+      "description": "Advanced hybrid development mode",
+      "enabled": true,
+      "requires_setup": false
+    }
+  ],
+  "auto_discovery": true,
+  "allow_custom_tools": true
+} 

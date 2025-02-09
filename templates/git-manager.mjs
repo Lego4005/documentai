@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 import fs from 'fs/promises';
 import path from 'path';
 import { formatManager } from './format-manager.mjs';
+
+const execAsync = promisify(exec);
 
 /**
  * Git rules and patterns
@@ -70,7 +73,7 @@ class GitTracker {
    */
   async getFileDiff(filePath) {
     try {
-      const diff = execSync(
+      const diff = await execAsync(
         `git diff --unified=3 ${filePath}`,
         { encoding: 'utf8' }
       );
@@ -100,34 +103,11 @@ class GitTracker {
    */
   async updateStatus() {
     try {
-      // Get current branch
-      this.currentBranch = execSync('git branch --show-current')
-        .toString()
-        .trim();
-
-      // Get last commit
-      this.lastCommit = execSync('git log -1 --pretty=format:"%h %s"')
-        .toString()
-        .trim();
-
-      // Get pending changes
-      this.pendingChanges = execSync('git status --porcelain')
-        .toString()
-        .trim()
-        .split('\n')
-        .filter(Boolean);
-
-      // Track diffs for changed files
-      for (const change of this.pendingChanges) {
-        const [, file] = change.split(' ');
-        await this.trackDiff(file);
-      }
-
-      // Update memory bank using format manager
-      await this.updateMemoryBank();
-
+      const { stdout } = await execAsync('git status --porcelain');
+      return stdout.trim();
     } catch (error) {
-      console.error('Git status update failed:', error);
+      console.error('Git status check failed:', error);
+      return '';
     }
   }
 
@@ -176,7 +156,42 @@ class GitTracker {
     }
   }
 
-  // Rest of the class remains the same
+  async checkAutoCommit() {
+    const status = await this.updateStatus();
+    if (status) {
+      try {
+        await execAsync('git add .');
+        await execAsync('git commit -m "Auto-commit: Memory Bank System update"');
+        return true;
+      } catch (error) {
+        console.error('Auto-commit failed:', error);
+        return false;
+      }
+    }
+    return false;
+  }
+
+  async createBranch(type, name) {
+    try {
+      const branchName = `${type}/${name}`;
+      await execAsync(`git checkout -b ${branchName}`);
+      return branchName;
+    } catch (error) {
+      console.error('Branch creation failed:', error);
+      throw error;
+    }
+  }
+
+  async createCommit(message) {
+    try {
+      await execAsync('git add .');
+      await execAsync(`git commit -m "${message}"`);
+      return true;
+    } catch (error) {
+      console.error('Commit failed:', error);
+      throw error;
+    }
+  }
 }
 
 // Export for use in memory bank system

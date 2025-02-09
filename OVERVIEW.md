@@ -24,19 +24,39 @@
 
 ## Commands
 
-1. Initialize Project
+1. **#load project** - 🚀 Initialize/Load Project
    ```bash
-   #load
+   #load project
    ```
 
-2. Save Progress
+2. **#status check** - 📊 Check Project Status
    ```bash
-   #status
+   #status check
    ```
 
-3. New Task
+3. **#update memory** - 💾 Update Memory Bank
    ```bash
-   #next
+   #update memory
+   ```
+4. **#create branch** - 🌱 Create Branch
+   ```bash
+   #create branch <type> <name>
+   ```
+5. **#create commit** - ✍️ Create Commit
+   ```bash
+   #commit "<message>"
+   ```
+6. **#manage pr** - 🤝 Manage PR
+   ```bash
+   #pr <create|update|close>
+   ```
+7. **#create file** - 📝 Create File
+   ```bash
+   #create file <path/to/new_file.js>
+   ```
+8. **#update file** - ✏️ Update File
+   ```bash
+   #update file <path/to/existing_file.js> -m "<message>"
    ```
 
 ## Automation
@@ -60,26 +80,26 @@
 
 ```bash
 You: Start new chat
-AI: Ready to help!
+AI: Ready to collaborate! 🤝
 
-You: #load
-AI: Reading project state...
+You: #load project - 🚀 Initialize/Load Project
+AI: Initializing project... 🚀
    - Checking documentation
    - Loading context
    - Ready to proceed
 
 You: Make some changes
-AI: Working...
+AI: Working on it... ⚙️
    [Auto-commit: Significant changes]
 
-You: #status
-AI: Saving state...
+You: #status check - 📊 Check Project Status
+AI: Checking status... 📊
    - Updating documentation
    - Recording changes
    - State saved
 
-You: #next
-AI: Transitioning...
+You: #next - ➡️ Start Fresh Task
+AI: Transitioning... ➡️
    - Saving final state
    - Finding next task
    - Fresh start
@@ -88,7 +108,7 @@ AI: Transitioning...
 ## Best Practices
 
 1. Project Start
-   - Always use #load
+   - Always use #load project - 🚀 Initialize/Load Project
    - Verify documentation
    - Check context
 
@@ -100,25 +120,64 @@ AI: Transitioning...
 3. Task Management
    - One task at a time
    - Clear transitions
-   - Use #next properly
+   - Use #next - ➡️ Start Fresh Task properly
 
 ## Error Handling
 
 1. Missing Files
-   ```bash
-   #load    # Re-initialize
+   ```bash 
+   #load project - 🚀 Initialize/Load Project   # Re-initialize
    ```
 
 2. Bad State
    ```bash
-   #status  # Fix documentation
+   #status check - 📊 Check Project Status  # Fix documentation
    ```
 
 3. Task Issues
    ```bash
-   #next    # Clean start
+   #next - ➡️ Start Fresh Task  # Clean start
    ```
 
-For details, see:
-- [Quick Start](QUICK_START.md)
-- [Memory Bank Guide](docs/MEMORY_BANK_GUIDE.md)
+## AI-Driven Workflows
+
+These examples illustrate how the AI agent can use the Unified Command System to perform development tasks autonomously.
+
+1. Feature Implementation (AI-Driven)
+   ```
+   AI: #create file src/components/NewFeature.js - 📝 Create File
+   AI: Writing code for new feature component...
+   AI: #update file src/components/NewFeature.js - ✏️ Update File -m "Implement basic component structure"
+   AI: Implementing component structure...
+   AI: #update file src/App.js - ✏️ Update File -m "Import and integrate NewFeature component"
+   AI: Integrating new feature into App component...
+   AI: Feature implementation complete! ✅ 
+   ```
+
+2. Bug Fixing (AI-Driven)
+   ```
+   AI: #analyze code quality - 🔍 Analyze Code Quality
+   AI: Analyzing code for potential issues... 🔍
+   AI: Code analysis complete. Identified potential bug in src/utils.js. 🐛
+   AI: #update file src/utils.js - ✏️ Update File -m "Fix potential bug in calculateTotal function"
+   AI: Fixing bug in calculateTotal function... 🛠️
+   AI: #test run unit - ✅ Run Unit Tests
+   AI: Running unit tests to verify fix... ✅
+   AI: Unit tests passed. Bug fix verified! ✅ 
+   ```
+
+3. Documentation Updates (AI-Driven)
+   ```bash
+   AI: #update memory - 💾 Update Memory Bank
+   AI: Updating Memory Bank documentation... 💾
+   AI: Memory Bank documentation updated to reflect recent code changes. 💾 
+   ```
+
+In these examples, the AI agent autonomously uses the Unified Command System to:
+
+- Create and update code files (`#create file`, `#update file`)
+- Analyze code (`#analyze code quality`)
+- Run tests (`#test run unit`)
+- Update documentation (`#update memory`)
+
+These workflows demonstrate how the AI can leverage the command system to perform various development tasks in a structured and automated manner.

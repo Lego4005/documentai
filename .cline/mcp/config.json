@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "mcpServers": {
+    "mcp-installer": {
+      "disabled": true,
+      "alwaysAllow": []
+    },
+    "everything": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-everything"
+      ],
+      "env": {
+        "npm_config_cache_max": "1024000000",
+        "NODE_OPTIONS": "--max-old-space-size=256",
+        "MCP_ENV": "production"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "list_tools",
+        "get_tool_config",
+        "execute_tool",
+        "list_resources",
+        "list_resource_templates"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem"
+      ],
+      "env": {
+        "MCP_ENV": "production"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "read_file",
+        "write_file",
+        "list_files",
+        "delete_file"
+      ]
+    }
+  },
+  "tools": {
+    "semantic-search": {
+      "enabled": true,
+      "config": {
+        "pinecone_api_key": "",
+        "pinecone_environment": "",
+        "pinecone_index": ""
+      }
+    },
+    "read-document": {
+      "enabled": true,
+      "config": {
+        "pinecone_api_key": "",
+        "pinecone_environment": "",
+        "pinecone_index": ""
+      }
+    },
+    "process-document": {
+      "enabled": true,
+      "config": {
+        "pinecone_api_key": "",
+        "pinecone_environment": "",
+        "pinecone_index": ""
+      }
+    },
+    "list-documents": {
+      "enabled": true,
+      "config": {
+        "pinecone_api_key": "",
+        "pinecone_environment": "",
+        "pinecone_index": ""
+      }
+    },
+    "pinecone-stats": {
+      "enabled": true,
+      "config": {
+        "pinecone_api_key": "",
+        "pinecone_environment": "",
+        "pinecone_index": ""
+      }
+    },
+    "memory_bank": {
+      "enabled": true,
+      "config": {
+        "maxSize": 1000000,
+        "ttl": 3600,
+        "storage_path": ".cline/mcp/memory_bank"
+      }
+    },
+    "token_optimizer": {
+      "enabled": true,
+      "config": {
+        "maxTokens": 4096,
+        "tokenBuffer": 200,
+        "compressionRatio": 0.8,
+        "priorityTokens": ["code", "error", "context"],
+        "optimizationStrategy": "smart"
+      }
+    },
+    "git_manager": {
+      "enabled": true,
+      "config": {
+        "auto_commit": true,
+        "commit_interval": 300
+      }
+    },
+    "doc_updater": {
+      "enabled": true,
+      "config": {
+        "watch_paths": ["docs/", "src/"],
+        "update_interval": 60
+      }
+    },
+    "format_manager": {
+      "enabled": true,
+      "config": {
+        "format_on_save": true
+      }
+    },
+    "template_processor": {
+      "enabled": true,
+      "config": {
+        "template_path": "templates/"
+      }
+    },
+    "checkpoint": {
+      "enabled": true,
+      "config": {
+        "checkpoint_interval": 900,
+        "max_checkpoints": 10
+      }
+    },
+    "hybrid_mode": {
+      "enabled": true,
+      "config": {
+        "mode": "auto"
+      }
+    }
+  },
+  "auto_configure": true,
+  "tool_suggestions": true
+} 

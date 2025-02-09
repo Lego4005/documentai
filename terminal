@@ -1,0 +1,30 @@
+# Set log level via environment variable
+LOG_LEVEL=warn npm start
+
+# If using log4js (from logging.config.ts errors)
+npm install log4js @types/log4js
+
+# If using winston
+npm install winston @types/winston
+
+# For general TypeScript dependencies
+npm install typescript ts-node @types/node
+
+# Clear node modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# Start server with debug logging
+LOG_LEVEL=debug npm start
+
+# 2. In another terminal, test the endpoint
+curl http://localhost:your_port/_diagnostics/log-test
+
+# Check if logging packages are actually installed
+npm list log4js winston
+
+# If nothing appears, install base requirements
+npm install log4js @types/log4js winston @types/winston --save-exact
+
+# Start server with error logging
+LOG_LEVEL=error npm start

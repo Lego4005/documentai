@@ -1,0 +1,28 @@
+# Product Context
+Version: 1.0.0
+Last Updated: {{TIMESTAMP}}
+
+## Project Overview
+- Project Name: {{PROJECT_NAME}}
+- Project Scope: {{PROJECT_SCOPE}}
+- Project Status: Active Development
+
+## Goals
+- Primary project objectives
+- Key deliverables
+- Success criteria
+
+## Requirements
+- Core functionality
+- Technical requirements
+- Integration needs
+
+## Architecture
+- System design
+- Component structure
+- Integration points
+
+## Timeline
+- Current phase
+- Major milestones
+- Delivery targets 

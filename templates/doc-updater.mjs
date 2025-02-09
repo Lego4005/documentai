@@ -111,7 +111,7 @@ class DocUpdater {
     const key = `${update.path}:${update.type}`;
     const lastChange = this.changeLog.get(key);
     
-    if (lastChange && Date.now() - lastChange.time < 1000) {
+    if (lastChange?.time && Date.now() - lastChange.time < 1000) {
       // Potential conflict, merge changes
       await this.mergeChanges(key, update, lastChange);
     }
